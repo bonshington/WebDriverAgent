@@ -20,6 +20,9 @@ jobs:
             ACTION: build
             TARGET: runner
             SDK: device
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
+            DEVICE_NAME_IPAD: iPad 2
   analyze:
     macos:
       xcode: "9.1.0"
@@ -32,6 +35,9 @@ jobs:
             ACTION: analyze
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: Analyze Runner
           command: ./Scripts/build.sh
@@ -39,6 +45,9 @@ jobs:
             ACTION: analyze
             TARGET: runner
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
+            DEVICE_NAME_IPAD: iPad 2
   unit_tests_9_1:
     macos:
       xcode: "9.1.0"
@@ -52,6 +61,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: Unit Tests iPad
           command: ./Scripts/build.sh
@@ -60,6 +71,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPad 2
   unit_tests_9_0:
     macos:
       xcode: "9.0"
@@ -73,6 +86,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: Unit Tests iPad
           command: ./Scripts/build.sh
@@ -81,6 +96,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPAD: iPad 2
   unit_tests_8_3:
     macos:
       xcode: "8.3.3"
@@ -104,6 +121,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: Unit Tests iPad
           command: ./Scripts/build.sh
@@ -112,6 +131,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPAD: iPad 2
   integration_tests_9_1:
     macos:
       xcode: "9.1.0"
@@ -125,6 +146,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 2
           command: ./Scripts/build.sh
@@ -133,6 +156,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 3
           command: ./Scripts/build.sh
@@ -141,6 +166,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPad 1
           command: ./Scripts/build.sh
@@ -149,6 +176,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 2
           command: ./Scripts/build.sh
@@ -157,6 +186,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 3
           command: ./Scripts/build.sh
@@ -165,6 +196,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.1
+            DEVICE_NAME_IPAD: iPad 2
   integration_tests_9_0:
     macos:
       xcode: "9.0"
@@ -178,6 +211,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 2
           command: ./Scripts/build.sh
@@ -186,6 +221,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 3
           command: ./Scripts/build.sh
@@ -194,6 +231,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPad 1
           command: ./Scripts/build.sh
@@ -202,6 +241,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 2
           command: ./Scripts/build.sh
@@ -210,6 +251,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 3
           command: ./Scripts/build.sh
@@ -218,6 +261,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 11.0
+            DEVICE_NAME_IPAD: iPad 2
   integration_tests_8_3:
     macos:
       xcode: "8.3.3"
@@ -241,6 +286,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 2
           command: ./Scripts/build.sh
@@ -249,6 +296,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 3
           command: ./Scripts/build.sh
@@ -257,6 +306,8 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPad 1
           command: ./Scripts/build.sh
@@ -265,6 +316,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 2
           command: ./Scripts/build.sh
@@ -273,6 +326,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 3
           command: ./Scripts/build.sh
@@ -281,6 +336,8 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
+            PLATFORM_VERSION: 10.3
+            DEVICE_NAME_IPAD: iPad 2
 
 workflows:
   version: 2
