@@ -86,7 +86,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: Unit Tests iPad
@@ -96,7 +96,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPAD: iPad 2
   unit_tests_8_3:
     macos:
@@ -121,7 +121,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: Unit Tests iPad
@@ -131,7 +131,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPAD: iPad 2
   integration_tests_9_1:
     macos:
@@ -211,7 +211,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 2
@@ -221,7 +221,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 3
@@ -231,7 +231,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPad 1
@@ -241,7 +241,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 2
@@ -251,7 +251,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 3
@@ -261,7 +261,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 11.0
+            PLATFORM_VERSION: "11.0"
             DEVICE_NAME_IPAD: iPad 2
   integration_tests_8_3:
     macos:
@@ -286,7 +286,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 2
@@ -296,7 +296,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPhone 3
@@ -306,7 +306,7 @@ jobs:
             DEST: iphone
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPHONE: iPhone 6
       - run:
           name: iPad 1
@@ -316,7 +316,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 2
@@ -326,7 +326,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPAD: iPad 2
       - run:
           name: iPad 3
@@ -336,7 +336,7 @@ jobs:
             DEST: ipad
             TARGET: lib
             SDK: sim
-            PLATFORM_VERSION: 10.3
+            PLATFORM_VERSION: "10.3.1"
             DEVICE_NAME_IPAD: iPad 2
 
 workflows:
