@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  builds:
+  build_and_analyze:
     macos:
       xcode: "9.1.0"
     steps:
@@ -23,11 +23,6 @@ jobs:
             PLATFORM_VERSION: 11.1
             DEVICE_NAME_IPHONE: iPhone 6
             DEVICE_NAME_IPAD: iPad 2
-  analyze:
-    macos:
-      xcode: "9.1.0"
-    steps:
-      - checkout
       - run:
           name: Analyze Lib
           command: ./Scripts/build.sh
@@ -107,7 +102,7 @@ jobs:
             TARGET: lib
             SDK: sim
             PLATFORM_VERSION: "10.3.1"
-            DEVICE_NAME_IPAD: iPad 2
+            DEVICE_NAME_IPAD: iPad Air 2
   integration_tests_9_1:
     macos:
       xcode: "9.1.0"
@@ -253,21 +248,16 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - builds
-      - analyze
+      - build_and_analyze
       - unit_tests_9_1:
           requires:
-              - builds
-              - analyze
+              - build_and_analyze
       - unit_tests_8_3:
           requires:
-              - builds
-              - analyze
+              - build_and_analyze
       - integration_tests_9_1:
           requires:
               - unit_tests_9_1
-              - unit_tests_8_3
       - integration_tests_8_3:
           requires:
-              - unit_tests_9_1
               - unit_tests_8_3
