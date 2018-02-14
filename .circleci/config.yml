@@ -73,31 +73,6 @@ jobs:
             SDK: sim
             PLATFORM_VERSION: 11.1
             DEVICE_NAME_IPHONE: iPad 2
-  unit_tests_9_0:
-    macos:
-      xcode: "9.0"
-    steps:
-      - checkout
-      - run:
-          name: Unit Tests iPhone
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: unit_test
-            DEST: iphone
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPHONE: iPhone 6
-      - run:
-          name: Unit Tests iPad
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: unit_test
-            DEST: ipad
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPAD: iPad 2
   unit_tests_8_3:
     macos:
       xcode: "8.3.3"
@@ -198,71 +173,6 @@ jobs:
             SDK: sim
             PLATFORM_VERSION: 11.1
             DEVICE_NAME_IPAD: iPad 2
-  integration_tests_9_0:
-    macos:
-      xcode: "9.0"
-    steps:
-      - checkout
-      - run:
-          name: iPhone 1
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_1
-            DEST: iphone
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPHONE: iPhone 6
-      - run:
-          name: iPhone 2
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_2
-            DEST: iphone
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPHONE: iPhone 6
-      - run:
-          name: iPhone 3
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_3
-            DEST: iphone
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPHONE: iPhone 6
-      - run:
-          name: iPad 1
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_1
-            DEST: ipad
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPAD: iPad 2
-      - run:
-          name: iPad 2
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_2
-            DEST: ipad
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPAD: iPad 2
-      - run:
-          name: iPad 3
-          command: ./Scripts/build.sh
-          environment:
-            ACTION: int_test_3
-            DEST: ipad
-            TARGET: lib
-            SDK: sim
-            PLATFORM_VERSION: "11.0"
-            DEVICE_NAME_IPAD: iPad 2
   integration_tests_8_3:
     macos:
       xcode: "8.3.3"
@@ -317,7 +227,7 @@ jobs:
             TARGET: lib
             SDK: sim
             PLATFORM_VERSION: "10.3.1"
-            DEVICE_NAME_IPAD: iPad 2
+            DEVICE_NAME_IPAD: iPad Air 2
       - run:
           name: iPad 2
           command: ./Scripts/build.sh
@@ -327,7 +237,7 @@ jobs:
             TARGET: lib
             SDK: sim
             PLATFORM_VERSION: "10.3.1"
-            DEVICE_NAME_IPAD: iPad 2
+            DEVICE_NAME_IPAD: iPad Air 2
       - run:
           name: iPad 3
           command: ./Scripts/build.sh
@@ -337,7 +247,7 @@ jobs:
             TARGET: lib
             SDK: sim
             PLATFORM_VERSION: "10.3.1"
-            DEVICE_NAME_IPAD: iPad 2
+            DEVICE_NAME_IPAD: iPad Air 2
 
 workflows:
   version: 2
@@ -349,10 +259,6 @@ workflows:
           requires:
               - builds
               - analyze
-      - unit_tests_9_0:
-          requires:
-              - builds
-              - analyze
       - unit_tests_8_3:
           requires:
               - builds
@@ -360,15 +266,8 @@ workflows:
       - integration_tests_9_1:
           requires:
               - unit_tests_9_1
-              - unit_tests_9_0
-              - unit_tests_8_3
-      - integration_tests_9_0:
-          requires:
-              - unit_tests_9_1
-              - unit_tests_9_0
               - unit_tests_8_3
       - integration_tests_8_3:
           requires:
               - unit_tests_9_1
-              - unit_tests_9_0
               - unit_tests_8_3
