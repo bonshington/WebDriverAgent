@@ -69,16 +69,15 @@ static dispatch_once_t onceUseSnapshotForDebugDescriptionToken;
 - (XCElementSnapshot *)fb_lastSnapshot
 {
   [self resolve];
-  __block XCElementSnapshot *result = nil;
+  SEL elementSnapshotForDebugDescription = NSSelectorFromString(@"elementSnapshotForDebugDescription");
   dispatch_once(&onceUseSnapshotForDebugDescriptionToken, ^{
-    result = [[self query] valueForKey:@"elementSnapshotForDebugDescription"];
-    FBShouldUseSnapshotForDebugDescription = result != nil;
+    FBShouldUseSnapshotForDebugDescription = [[self query] respondsToSelector:elementSnapshotForDebugDescription];
   });
-  if (nil != result) {
-    return result;
-  }
   if (FBShouldUseSnapshotForDebugDescription) {
-    return (XCElementSnapshot *)[[self query] valueForKey:@"elementSnapshotForDebugDescription"];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    return (XCElementSnapshot *)[[self query] performSelector:elementSnapshotForDebugDescription];
+#pragma clang diagnostic pop
   }
   return self.lastSnapshot;
 }
