@@ -31,8 +31,10 @@
 - (void)verifyGesture:(NSArray<NSDictionary<NSString *, id> *> *)gesture orientation:(UIDeviceOrientation)orientation
 {
   [[XCUIDevice sharedDevice] fb_setDeviceInterfaceOrientation:orientation];
+  if (self.testedApplication.alerts.count > 0) {
+    [[FBAlert alertWithApplication:self.testedApplication] dismissWithError:nil];
+  }
   NSError *error;
-  XCTAssertTrue(self.testedApplication.alerts.count == 0);
   XCTAssertTrue([self.testedApplication fb_performAppiumTouchActions:gesture elementCache:nil error:&error]);
   FBAssertWaitTillBecomesTrue(self.testedApplication.alerts.count > 0);
 }
