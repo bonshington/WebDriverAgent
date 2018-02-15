@@ -68,16 +68,12 @@ static dispatch_once_t onceUseSnapshotForDebugDescriptionToken;
 
 - (XCElementSnapshot *)fb_lastSnapshot
 {
-  SEL elementSnapshotForDebugDescription = NSSelectorFromString(@"elementSnapshotForDebugDescription");
   XCUIElementQuery *query = [self query];
   dispatch_once(&onceUseSnapshotForDebugDescriptionToken, ^{
-    FBShouldUseSnapshotForDebugDescription = [query respondsToSelector:elementSnapshotForDebugDescription];
+    FBShouldUseSnapshotForDebugDescription = [query respondsToSelector:@selector(elementSnapshotForDebugDescription)];
   });
   if (FBShouldUseSnapshotForDebugDescription) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    return (XCElementSnapshot *)[query performSelector:elementSnapshotForDebugDescription];
-#pragma clang diagnostic pop
+    return (XCElementSnapshot *)[query performSelector:@selector(elementSnapshotForDebugDescription)];
   }
   [self resolve];
   return self.lastSnapshot;
