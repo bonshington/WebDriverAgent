@@ -128,11 +128,9 @@ const static NSTimeInterval FBMinimumAppSwitchWait = 3.0;
 
 - (XCUIElement *)fb_activeElement
 {
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"hasKeyboardFocus == YES"];
-  return [[[[self descendantsMatchingType:XCUIElementTypeAny]
-            matchingPredicate:predicate]
-           allElementsBoundByIndex]
-          firstObject];
+  return [[[self descendantsMatchingType:XCUIElementTypeAny]
+           matchingPredicate:[NSPredicate predicateWithFormat:@"hasKeyboardFocus == YES"]]
+          fb_firstMatch];
 }
 
 @end
